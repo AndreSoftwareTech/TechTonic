@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(65, 67, 65);
+    color: aliceblue;
+}
+
+header{
+    background-color: black;
+}
+
+
+footer{
+    background-color: black;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+#logo img{
+    width: 100px;
+    
+}
