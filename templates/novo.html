@@ -1,28 +1,27 @@
 {% extends "template.html" %}
-{%block conteudo%}
+{% block conteudo%} 
 
-    <form action="/criar" method="post">
-
-        <fieldset>
-
-            <div class="form-group">
-                <input type="text" id="nome" nome="nome" placeholder="digite seu nome" class="form-control"> 
-            </div>
-            <br>
-
-            <div class="form-group">
-                <input type="text" id="idade" nome="idade" placeholder="digite sua idade" class="form-control"> 
-            </div>
-            <br>
-
-            <div class="form-group">
-                <input type="text" id="altura" nome="altura" placeholder="digite sua altura" class="form-control"> 
-            </div>
-            <br>
-
-            <button type="submit" class="btn btn-sucess">Salvar</button>
-
-        </fieldset>
-        
+     <form action="/criar" method="post">
+ 
+       <fieldset>
+ 
+         <div class="form-group">
+           <label for="nome">Nome</label>
+           <input type="text" id="nome" name="nome" class="form-control">
+         </div>
+ 
+         <div class="form-group">
+           <label for="idade">Idade</label>
+           <input type="text" id="idade" name="idade" class="form-control">
+         </div>
+ 
+         <div class="form-group">
+           <label for="altura">Altura</label>
+           <input type="text" id="altura" name="altura" class="form-control">
+         </div>
+ 
+         <button type="submit" class="btn btn-success">Salvar</button>
+       </fieldset>
+ 
     </form>
-    {%endblock%}
+{% endblock %}

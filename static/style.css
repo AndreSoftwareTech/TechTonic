@@ -7,15 +7,37 @@ header{
     background-color: black;
 }
 
-
 footer{
     background-color: black;
     text-align: center;
 }
+
 h1{
     text-align: center;
 }
+
 #logo img{
     width: 100px;
+    border-radius: 10px;
     
 }
+
+a{
+    color: white;
+    text-decoration:  none;
+    font-size: 30px;
+}
+a:hover{
+    color: yellow;
+    background-color: darkblue;
+}
+
+ul{
+    list-style: none;
+}
+li{
+    text-align: right;
+    height: 100px;
+
+}
+

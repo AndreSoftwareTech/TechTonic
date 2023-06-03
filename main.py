@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from pessoa import Pessoa
 
 # Importacao e ultilizacao da nossa clase pessoa
@@ -18,7 +18,19 @@ def inicio():
     return render_template('index.html', titulo = 'Home', pessoas = lista)
 
 @app.route('/novo')
-def criar():
+def novo():
     return render_template('novo.html', titulo = "Formulario de cadastro")
+
+@app.route('/criar', methods=['POST',])
+def criar():
+
+    nome = request.form["nome" ]
+    idade = request.form["idade"]
+    altura = request.form["altura"]
+
+    pessoas = Pessoa(nome, idade, altura)
+
+    lista.append(pessoas)
+    return redirect('/')
 
 app.run(debug=True)
