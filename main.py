@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, flash
 from pessoa import Pessoa
 
 # Importacao e ultilizacao da nossa clase pessoa
@@ -12,6 +12,7 @@ lista = [pessoa1, pessoa2, pessoa3, pessoa4]
 
 # tudo que depende do nosso framework, deve estar abaixo do objeto da classe Flask
 app = Flask(__name__)
+app.secret_key = "123456"
 
 @app.route("/")
 def inicio():
@@ -19,7 +20,7 @@ def inicio():
 
 @app.route('/novo')
 def novo():
-    return render_template('novo.html', titulo = "Formulario de cadastro")
+    return render_template('novo.html', titulo = "Cadastro")
 
 @app.route('/criar', methods=['POST',])
 def criar():
@@ -32,5 +33,24 @@ def criar():
 
     lista.append(pessoas)
     return redirect('/')
+
+@app.route('/login')
+def login():
+    return render_template('login.html', titulo = 'Softaware Tech')
+
+@app.route('/autenticar', methods=['POST',])
+def autenticar():
+    if '123456' == request.form['senha']:
+        session['usuario_Logado'] = request.form['usuario']
+        flash(session['usuario_Logado'] + 'Voce Esta Logado')
+        return redirect("/")
+    else:
+        flash("Senha incorreta")
+        return redirect('/login')
+@app.route('/logout')   
+def logout():
+    session['usuario_Logado'] == None
+    flash('Voce Foi Desconectado')
+    return redirect('/login')
 
 app.run(debug=True)

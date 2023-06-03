@@ -1,14 +1,15 @@
 body{
-    background-color: rgb(65, 67, 65);
+    background-image: url('sftw.jpg');
+    background-color: #cccccc;
     color: aliceblue;
 }
 
 header{
-    background-color: black;
+    background-color: #03062d;
 }
 
 footer{
-    background-color: black;
+    background-color: #060a33;
     text-align: center;
 }
 
@@ -20,6 +21,7 @@ h1{
     width: 100px;
     border-radius: 10px;
     
+    
 }
 
 a{
@@ -28,8 +30,8 @@ a{
     font-size: 30px;
 }
 a:hover{
-    color: yellow;
-    background-color: darkblue;
+    color: rgb(18, 115, 11);
+    
 }
 
 ul{
