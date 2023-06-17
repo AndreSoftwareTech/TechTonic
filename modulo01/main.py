@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, flash
-from pessoa import Pessoa
+from modulo01.pessoa import Pessoa
 
 # Importacao e ultilizacao da nossa clase pessoa
 pessoa1 = Pessoa("Luciano", "18", "1.80")
