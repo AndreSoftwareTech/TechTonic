@@ -1,5 +1,5 @@
 body{
-    color: yellow;
+    color: white;
     background: rgb(93, 90, 90);
 }
 h1{
@@ -10,11 +10,11 @@ a{
 
 }
 a:hover{
-    background-color: aliceblue;
-    color: black;
+    background-color: rgb(23, 74, 118);
+    color: white;
 }
 header{
-    background-color: black;
+    background-color: white;
 }
 footer{
     text-align: center;

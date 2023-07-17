@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
-from models import Jogos, Usuarios
+from models import Pessoa, Usuarios
 
 
 
@@ -13,29 +13,25 @@ app = Flask(__name__)
 app.secret_key = 'moredevs'
 
 #string conexao
-app.config['SQLALCHEMY_DATABASE_URI'] = '{SGBD}://{usuario}:{senha}@{servidor}/{database}'.format(
-    SGBD = 'postgresql',
-    usuario = "teste",
-    senha = "123456",
-    servidor = "localhost",
-    database = "postgres"
-)
+SQLALCHEMY_DATABASE_URI = 'sqlite:///C:\\Users\\Andre Vitor\\Documents\\repositorios\\Python\\TechTonic\\modulo03\\aplication.sqlite3'
+
+
 
 #================================================================================
 db = SQLAlchemy(app)
 
 
 #=========================================================================
-lista = Jogos.query.order_by(Jogos.id)
+lista = Pessoa.query.order_by(Pessoa.id)
 
 
 @app.route('/')
 def index():
 
-    lista = Jogos.query.order_by(Jogos.id)
+    lista = Pessoa.query.order_by(Pessoa.id)
 
     #render template acessa nosso html, variavel titulo recebendo valor e sendo acessada via html.
-    return render_template("lista.html", titulo = 'jogos', jogos = lista)
+    return render_template("lista.html", titulo = 'pessoas', pessoas = lista)
 
 
 
@@ -56,19 +52,19 @@ def novo():
 @app.route('/criar2', methods=['POST',])
 def criar():
     nome = request.form['nome']
-    categoria = request.form['categoria']
-    console = request.form['console']
+    idade = request.form['categoria']
+    idade = request.form['console']
     #variavel nova recebendo classe jogo e filtrando pelo nome
-    jogo = Jogos.query.filter_by(nome=nome).first()
+    pessoa = Pessoa.query.filter_by(nome=nome).first()
     # if condicional recebendo a variavel caso exista jogos cadastrados 
-    if jogo:
-        flash('Jogo Ja Existente!')
+    if pessoa:
+        flash('Pessoa Ja Existente!')
         return redirect(url_for('index'))
 
     #variavel criada recebendo variaveis e as variaveis refente ao form
-    novo_jogo = Jogos(nome=nome, categoria=categoria, console=console)
+    nova_pessoa = Pessoa(nome=nome, idade=idade, console=idade)
     #acessando variavel db e o recurso session e adicionando dados a variavel novo jogo 
-    db.session.add(novo_jogo)
+    db.session.add(nova_pessoa)
     #acessando variavel db e o recurso session e comitando dados no banco
     db.session.commit()
     #redirecionamento para lista de jogos
