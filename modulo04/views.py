@@ -24,10 +24,10 @@ def criar():
     altura = request.form['altura']
 
     #variavel nova recebendo classe jogo e filtrando pelo nome
-    jogo = Pessoa.query.filter_by(nome=nome).first()
+    pessoa = Pessoa.query.filter_by(nome=nome).first()
     # if condicional recebendo a variavel caso exista Pessoa cadastrados 
-    if jogo:
-        flash('Jogo Ja Existente!')
+    if pessoa:
+        flash('pessoa Ja Existente!')
         return redirect(url_for('index'))
 
     #variavel criada recebendo variaveis e as variaveis refente ao form

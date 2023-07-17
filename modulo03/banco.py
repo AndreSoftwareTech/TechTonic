@@ -13,11 +13,11 @@ if conn is not None:
 
     cursor = conn.cursor()
 
-    cursor.execute('CREATE TABLE  pessoa (id serial, nome VARCHAR(15)NOT NULL, idade VARCHAR(15)NOT NULL, altura varchar(15) NOT NULL, PRIMARY KEY(id));')
+    cursor.execute('CREATE TABLE pessoa (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR(15) NOT NULL, idade INTEGER NOT NULL, altura VARCHAR(20) NOT NULL);')
     print('Sua tabela pessoa foi criada!')
 
-    cursor.execute('CREATE TABLE usuarios  (nome VARCHAR(15) NOT NULL, nickname VARCHAR(30)NOT NULL, senha VARCHAR(30)NOT NULL,  PRIMARY KEY(nickname) );')
-    print('Sua tabela usuario foi criada!')
+    # cursor.execute('CREATE TABLE usuarios (nome VARCHAR(15) NOT NULL, nickname VARCHAR(30) PRIMARY KEY NOT NULL, senha VARCHAR(30) NOT NULL);')
+    # print('Sua tabela usuarios foi criada!')
 
     conn.commit()
     cursor.close()
